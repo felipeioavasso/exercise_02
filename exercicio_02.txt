@@ -1,0 +1,47 @@
+Quantidade de nutrientes barra de cereal
+
+1) Modelo explícito
+
+--> Variáveis:
+    x1: Quantidade do ingrediente Cereal
+    x2: Quantidade do ingrediente Mel
+    x3: Quantidade do ingrediente Soja
+    x4: Quantidade do ingrediente Banada
+    q1: Quantidade do nutriente Fibra
+    q2: Quantidade do nutriente Proteína
+    q3: Quantidade do nutriente Carboidrato
+    q4: Quantidade do nutriente Gordura
+
+--> Min custo
+    Custo * quantidade de ingrediente
+    Min 5,20x1 + 6,80x2 + 7,10x3 + 2,50x4
+
+s.a.
+    0,26q1 + 0,01q2 + 0,25q3 + 0,1q4  >= 0,22
+    0,05q1 + 0,05q2 + 0,26q3 + 0,02q4 >= 0,07
+     0,6q1 + 0,75q2 + 0,45q3 + 0,24q4  <= 0,55
+    0,07q1 +    0   + 0,01q3 + 0,01q4  <= 0,08
+    x1 + x2 + x3 + x4 = 1
+
+
+2) Modelo algébrico
+    n número de ingredientes
+    m qtde de nutrientes
+
+--> Variáveis de decisão
+    Xi: Quantidade de ingrediente    i. i=1,...,n
+    Qji: Quantidade de nutriente     i. i=1,...,m e j=1,...,m
+
+--> Parâmetros
+    Ci:  Custo de cada ingrediente              i=1,...,n
+    Qji: Quantidade de cada nutriente           i=1,...,m e j=1,...,m
+    Lj:  Quantidade mínima de nutriente         j=1,...,n
+    Uj:  Quantidade máxima de nutriente         j=1,...,n
+
+--> Modelo
+    min Σ(Ci*xi)        i=1 
+
+s.a.
+    Σ(Qji * xi) >= Lj                           j=1,...,m
+    Σ(Qji * xi) <= Uj                           j=1,...,m
+    Σxi = 1                                     i=1,...,n
